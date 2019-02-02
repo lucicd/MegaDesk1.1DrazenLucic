@@ -1,6 +1,6 @@
 ﻿using System.Windows.Forms;
 
-namespace MegaDesk_3_DrazenLucic
+namespace MegaDesk
 {
     //The code in this class is inspired by 
     //https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.control.keypress?view=netframework-4.7.2

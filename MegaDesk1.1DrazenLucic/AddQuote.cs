@@ -1,19 +1,24 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Windows.Forms;
 
-namespace MegaDesk_3_DrazenLucic
+namespace MegaDesk
 {
     public partial class AddQuote : Form
     {
         public AddQuote()
         {
             InitializeComponent();
+            List<Materials> materials = Enum.GetValues(typeof
+                (Materials)).Cast<Materials>().ToList();
+            cboSurfaceMaterial.DataSource = materials;
         }
 
         private void AddQuote_Load(object sender, EventArgs e)
         {
             cboNumberOfDrawers.SelectedItem = "0";
-            cboSurfaceMaterial.SelectedItem = "Oak";
+            cboSurfaceMaterial.SelectedItem = Materials.Oak;
         }
 
         private void nupField_Enter(object sender, EventArgs e)
@@ -186,15 +191,20 @@ namespace MegaDesk_3_DrazenLucic
                 newDesk.ProductionTime = 14;
             }
 
-            newDesk.SurfaceMaterial = Program.SurfaceMaterialId(cboSurfaceMaterial.Text);
-
-            Program.Quotes.Add(newDesk.Quote);
-
-            DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
-            var mainMenu = (MainMenu)Tag;
-            displayQuoteForm.Tag = mainMenu;
-            Tag = displayQuoteForm;
-            Close();
+            newDesk.SurfaceMaterial = (Materials)cboSurfaceMaterial.SelectedValue;
+            try
+            {
+                Program.Quotes.Add(newDesk.Quote);
+                DisplayQuote displayQuoteForm = new DisplayQuote(newDesk.Quote);
+                var mainMenu = (MainMenu)Tag;
+                displayQuoteForm.Tag = mainMenu;
+                Tag = displayQuoteForm;
+                Close();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(this, ex.Message);
+            }
         }
     }
 }

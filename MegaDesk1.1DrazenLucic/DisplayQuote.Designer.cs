@@ -1,4 +1,4 @@
-﻿namespace MegaDesk_3_DrazenLucic
+﻿namespace MegaDesk
 {
     partial class DisplayQuote
     {

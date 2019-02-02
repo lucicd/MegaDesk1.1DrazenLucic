@@ -1,4 +1,4 @@
-﻿namespace MegaDesk_3_DrazenLucic
+﻿namespace MegaDesk
 {
     partial class AddQuote
     {
@@ -203,16 +203,9 @@
             this.cboSurfaceMaterial.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboSurfaceMaterial.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboSurfaceMaterial.FormattingEnabled = true;
-            this.cboSurfaceMaterial.Items.AddRange(new object[] {
-            "Laminate",
-            "Oak",
-            "Pine",
-            "Rosewood",
-            "Veneer"});
             this.cboSurfaceMaterial.Location = new System.Drawing.Point(260, 239);
             this.cboSurfaceMaterial.Name = "cboSurfaceMaterial";
             this.cboSurfaceMaterial.Size = new System.Drawing.Size(121, 30);
-            this.cboSurfaceMaterial.Sorted = true;
             this.cboSurfaceMaterial.TabIndex = 12;
             // 
             // rboProductionTime3

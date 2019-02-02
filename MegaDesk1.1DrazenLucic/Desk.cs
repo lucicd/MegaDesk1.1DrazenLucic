@@ -1,12 +1,12 @@
-﻿namespace MegaDesk_3_DrazenLucic
+﻿namespace MegaDesk
 {
     public enum Materials
     {
-        Oak,
-        Laminate,
-        Pine,
-        Rosewood,
-        Veneer
+        Oak = 200,
+        Laminate = 100,
+        Pine = 50,
+        Rosewood = 300 ,
+        Veneer = 125
     }
 
     public class Desk
@@ -47,7 +47,7 @@
         {
             get
             {
-                return Program.SurfaceMaterialDescr(this.SurfaceMaterial);
+                return this.SurfaceMaterial.ToString();
             }
         }
     }

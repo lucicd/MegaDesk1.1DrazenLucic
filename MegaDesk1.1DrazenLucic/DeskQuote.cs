@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace MegaDesk_3_DrazenLucic
+namespace MegaDesk
 {
     public class DeskQuote
     {
@@ -47,7 +47,8 @@ namespace MegaDesk_3_DrazenLucic
 
         public double BasePrice
         {
-            get {
+            get
+            {
                 return Desk.BASE_PRICE;
             }
         }
@@ -81,29 +82,7 @@ namespace MegaDesk_3_DrazenLucic
         {
             get
             {
-                double surfaceSurcharge = 0;
-                switch (this.QuotedDesk.SurfaceMaterial)
-                {
-                    case Materials.Oak:
-                        surfaceSurcharge = 200;
-                        break;
-                    case Materials.Laminate:
-                        surfaceSurcharge = 100;
-                        break;
-                    case Materials.Pine:
-                        surfaceSurcharge = 50;
-                        break;
-                    case Materials.Rosewood:
-                        surfaceSurcharge = 300;
-                        break;
-                    case Materials.Veneer:
-                        surfaceSurcharge = 125;
-                        break;
-                    default:
-                        surfaceSurcharge = 0;
-                        break;
-                }
-                return surfaceSurcharge;
+                return (double)this.QuotedDesk.SurfaceMaterial; 
             }
         }
 

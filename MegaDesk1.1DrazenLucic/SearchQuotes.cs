@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MegaDesk_3_DrazenLucic
+namespace MegaDesk
 {
     public partial class SearchQuotes : Form
     {

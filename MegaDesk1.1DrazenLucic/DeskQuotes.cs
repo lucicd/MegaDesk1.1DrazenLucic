@@ -1,12 +1,13 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 
-namespace MegaDesk_3_DrazenLucic
+namespace MegaDesk
 {
 
     public class DeskQuotes
     {
         private List<DeskQuote> quotes;
+        private const string fileName = @"quotes.txt";
 
         public DeskQuotes()
         {
@@ -27,12 +28,11 @@ namespace MegaDesk_3_DrazenLucic
             }
             else
             {
-                Materials material = Program.SurfaceMaterialId(materialDescr); 
                 return quotes.FindAll
                 (
                     delegate (DeskQuote quote)
                     {
-                        return quote.QuotedDesk.SurfaceMaterial == material;
+                        return quote.QuotedDesk.SurfaceMaterial.ToString() == materialDescr;
                     }
                 );
             }
@@ -42,14 +42,22 @@ namespace MegaDesk_3_DrazenLucic
         {
             quotes.Add(quote);
             string[] lines = quotes.ConvertAll(x => x.MakeFileRecord()).ToArray();
-            File.WriteAllLines("quotes.txt", lines);
+            try
+            {
+                File.WriteAllLines(fileName, lines);
+            }
+            catch (System.Exception e)
+            {
+                throw new System.Exception("Can't write to " + fileName + ". " + e.Message);
+            }
+            
         }
 
         private void LoadFromFile()
         {
-            if (File.Exists("quotes.txt"))
+            if (File.Exists(fileName))
             {
-                string[] lines = File.ReadAllLines("quotes.txt");
+                string[] lines = File.ReadAllLines(fileName);
                 foreach (string line in lines)
                 {
                     quotes.Add(new DeskQuote(line));
